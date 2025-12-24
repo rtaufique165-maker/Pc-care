@@ -1,402 +1,294 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PC Care - Premium Computer Services</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
-            color: #ffffff;
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        /* Navbar */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(15, 15, 35, 0.9);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-        .navbar.scrolled {
-            background: rgba(15, 15, 35, 0.95);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
-        .navbar .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-        }
-        .navbar .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: #00d4ff;
-            text-decoration: none;
-            animation: fadeIn 1s ease;
-        }
-        .navbar .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        .navbar .nav-links li {
-            margin-left: 30px;
-        }
-        .navbar .nav-links a {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-        .navbar .nav-links a:hover {
-            color: #00d4ff;
-        }
-        /* Hero */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
-            animation: float 20s infinite linear;
-        }
-        .hero-content {
-            text-align: center;
-            z-index: 1;
-            animation: slideUp 1s ease;
-        }
-        .hero h1 {
-            font-size: 4rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            background: linear-gradient(45deg, #00d4ff, #a855f7);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-            opacity: 0.9;
-        }
-        .cta-button {
-            background: linear-gradient(45deg, #00d4ff, #a855f7);
-            color: #ffffff;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
-        }
-        .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.5);
-        }
-        /* Sections */
-        section {
-            padding: 100px 0;
-        }
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 50px;
-            background: linear-gradient(45deg, #00d4ff, #a855f7);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        /* About */
-        .about {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 50px;
-            margin: 0 20px;
-            animation: fadeInUp 1s ease;
-        }
-        /* Services */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        .service-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px);
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            animation: fadeInUp 1s ease;
-        }
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            background: rgba(255, 255, 255, 0.15);
-        }
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: #00d4ff;
-        }
-        /* Gallery */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        .gallery-item {
-            height: 200px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #ffffff;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            animation: fadeInUp 1s ease;
-        }
-        .gallery-item:hover {
-            transform: scale(1.05);
-        }
-        /* Contact */
-        .contact {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 50px;
-            margin: 0 20px;
-            text-align: center;
-            animation: fadeInUp 1s ease;
-        }
-        .contact-info {
-            margin-bottom: 30px;
-        }
-        .contact-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        .contact-button {
-            background: linear-gradient(45deg, #00d4ff, #a855f7);
-            color: #ffffff;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
-        }
-        .contact-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.5);
-        }
-        /* Footer */
-        .footer {
-            background: rgba(15, 15, 35, 0.9);
-            padding: 20px 0;
-            text-align: center;
-        }
-        /* Floating Buttons */
-        .floating-button {
-            position: fixed;
-            bottom: 20px;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #00d4ff, #a855f7);
-            color: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
-            z-index: 1000;
-        }
-        .floating-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.5);
-        }
-        .whatsapp {
-            right: 20px;
-        }
-        .call {
-            right: 90px;
-        }
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes slideUp {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        @keyframes fadeInUp {
-            from { transform: translateY(30px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        @keyframes float {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-100px); }
-        }
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            .navbar .nav-links {
-                display: none; /* Simple mobile menu - can be enhanced */
-            }
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-            .contact-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PC Care | Premium Computer Services</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+font-family:'Montserrat',sans-serif;
+background:#0b0f1a;
+color:#fff;
+overflow-x:hidden;
+}
+
+/* NAVBAR */
+nav{
+position:fixed;
+top:0;
+width:100%;
+z-index:999;
+transition:.4s;
+}
+nav.scrolled{
+background:rgba(10,15,30,.95);
+backdrop-filter:blur(10px);
+box-shadow:0 10px 30px rgba(0,0,0,.4);
+}
+.nav-container{
+max-width:1200px;
+margin:auto;
+padding:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+.logo{
+font-size:24px;
+font-weight:700;
+color:#00d4ff;
+}
+.nav-links a{
+margin-left:25px;
+text-decoration:none;
+color:#fff;
+font-weight:500;
+}
+.nav-links a:hover{color:#00d4ff}
+
+/* HERO */
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+background:linear-gradient(135deg,#1f3c88,#512da8);
+position:relative;
+}
+.hero h1{
+font-size:4rem;
+background:linear-gradient(45deg,#00d4ff,#a855f7);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:fadeUp 1.2s ease;
+}
+.hero p{
+margin:20px 0 40px;
+font-size:1.2rem;
+opacity:.9;
+animation:fadeUp 1.6s ease;
+}
+.btn{
+padding:15px 35px;
+border:none;
+border-radius:50px;
+background:linear-gradient(45deg,#00d4ff,#a855f7);
+color:#fff;
+font-size:1.1rem;
+cursor:pointer;
+transition:.3s;
+box-shadow:0 10px 30px rgba(0,212,255,.4);
+animation:fadeUp 2s ease;
+}
+.btn:hover{transform:translateY(-6px)}
+
+/* SECTION */
+section{
+padding:100px 20px;
+max-width:1200px;
+margin:auto;
+}
+.title{
+text-align:center;
+font-size:2.5rem;
+margin-bottom:60px;
+background:linear-gradient(45deg,#00d4ff,#a855f7);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+/* ABOUT */
+.about-box{
+background:rgba(255,255,255,.06);
+padding:50px;
+border-radius:20px;
+backdrop-filter:blur(15px);
+}
+
+/* SERVICES */
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+.card{
+background:rgba(255,255,255,.08);
+padding:30px;
+border-radius:20px;
+text-align:center;
+transition:.4s;
+}
+.card:hover{
+transform:translateY(-12px);
+box-shadow:0 30px 60px rgba(0,0,0,.5);
+}
+.card h3{color:#00d4ff;margin-bottom:15px}
+
+/* GALLERY */
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+.work{
+height:200px;
+border-radius:18px;
+background:linear-gradient(135deg,#667eea,#764ba2);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:1.2rem;
+font-weight:600;
+transition:.4s;
+}
+.work:hover{transform:scale(1.07)}
+
+/* CONTACT */
+.contact-box{
+background:rgba(255,255,255,.06);
+padding:50px;
+border-radius:20px;
+text-align:center;
+}
+.contact-box p{margin:10px 0}
+.contact-btns{
+margin-top:30px;
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+/* FLOAT BUTTONS */
+.float{
+position:fixed;
+bottom:20px;
+width:60px;
+height:60px;
+border-radius:50%;
+background:linear-gradient(45deg,#00d4ff,#a855f7);
+display:flex;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+box-shadow:0 10px 25px rgba(0,212,255,.5);
+transition:.3s;
+}
+.float:hover{transform:scale(1.15)}
+.whatsapp{right:20px}
+.call{right:90px}
+
+/* FOOTER */
+footer{
+padding:20px;
+text-align:center;
+background:#0a0f1e;
+}
+
+/* ANIMATIONS */
+.reveal{opacity:0;transform:translateY(40px);transition:1s}
+.reveal.active{opacity:1;transform:none}
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(40px)}
+to{opacity:1;transform:none}
+}
+
+/* MOBILE */
+@media(max-width:768px){
+.hero h1{font-size:2.6rem}
+}
+</style>
 </head>
+
 <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="container">
-            <a href="#" class="logo">PC Care</a>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
 
-    <!-- Hero -->
-    <section class="hero">
-        <div class="container hero-content">
-            <h1>Welcome to PC Care</h1>
-            <p>Your trusted partner for all computer services in Rourkela</p>
-            <button class="cta-button">Get Started</button>
-        </div>
-    </section>
+<nav id="nav">
+<div class="nav-container">
+<div class="logo">PC Care</div>
+<div class="nav-links">
+<a href="#about">About</a>
+<a href="#services">Services</a>
+<a href="#work">Work</a>
+<a href="#contact">Contact</a>
+</div>
+</div>
+</nav>
 
-    <!-- About -->
-    <section id="about" class="container">
-        <h2 class="section-title">About PC Care</h2>
-        <div class="about">
-            <p>With over 5+ years of experience, PC Care is your go-to destination for premium computer services. We specialize in desktop and laptop repairs, custom PC builds, software installations, and much more. Our team of experts ensures top-notch service with a focus on quality and customer satisfaction.</p>
-        </div>
-    </section>
+<section class="hero">
+<div>
+<h1>PC Care</h1>
+<p>Premium Computer Services in Rourkela</p>
+<button class="btn">Get Service</button>
+</div>
+</section>
 
-    <!-- Services -->
-    <section id="services" class="container">
-        <h2 class="section-title">Our Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>Desktop & Laptop Repair</h3>
-                <p>Expert repair services for all your desktop and laptop issues.</p>
-            </div>
-            <div class="service-card">
-                <h3>New PC Build & Assemble</h3>
-                <p>Custom PC builds tailored to your needs and preferences.</p>
-            </div>
-            <div class="service-card">
-                <h3>Windows & Software Installation</h3>
-                <p>Seamless installation of operating systems and software.</p>
-            </div>
-            <div class="service-card">
-                <h3>Accessories Sale</h3>
-                <p>Wide range of computer accessories available for purchase.</p>
-            </div>
-            <div class="service-card">
-                <h3>Networking / Wi-Fi / CCTV</h3>
-                <p>Complete networking solutions including Wi-Fi setup and CCTV installation.</p>
-            </div>
-            <div class="service-card">
-                <h3>Annual Maintenance (AMC)</h3>
-                <p>Comprehensive annual maintenance contracts for ongoing support.</p>
-            </div>
-        </div>
-    </section>
+<section id="about" class="reveal">
+<h2 class="title">About Us</h2>
+<div class="about-box">
+<p>PC Care is a trusted computer service center with 5+ years of experience. We provide professional repair, custom PC builds, networking, CCTV installation and complete IT solutions.</p>
+</div>
+</section>
 
-    <!-- Gallery -->
-    <section id="gallery" class="container">
-        <h2 class="section-title">Our Work</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item">Project 1</div>
-            <div class="gallery-item">Project 2</div>
-            <div class="gallery-item">Project 3</div>
-            <div class="gallery-item">Project 4</div>
-            <div class="gallery-item">Project 5</div>
-            <div class="gallery-item">Project 6</div>
-        </div>
-    </section>
+<section id="services" class="reveal">
+<h2 class="title">Our Services</h2>
+<div class="services">
+<div class="card"><h3>PC / Laptop Repair</h3><p>All hardware & software issues fixed.</p></div>
+<div class="card"><h3>Custom PC Build</h3><p>Gaming & Office PC assembly.</p></div>
+<div class="card"><h3>Windows Installation</h3><p>Genuine OS & drivers setup.</p></div>
+<div class="card"><h3>Accessories Sale</h3><p>Keyboard, Mouse, SSD, RAM.</p></div>
+<div class="card"><h3>Networking / CCTV</h3><p>Wi-Fi & surveillance setup.</p></div>
+<div class="card"><h3>AMC Support</h3><p>Annual maintenance service.</p></div>
+</div>
+</section>
 
-    <!-- Contact -->
-    <section id="contact" class="container">
-        <h2 class="section-title">Contact Us</h2>
-        <div class="contact">
-            <div class="contact-info">
-                <p><strong>Address:</strong> Musabadi Street, Main Rd, Nala Road, Udit Nagar, Rourkela, Odisha 769001</p>
-                <p><strong>Phone:</strong> 9861501260</p>
-            </div>
-            <div class="contact-buttons">
-                <button class="contact-button" onclick="window.location.href='tel:9861501260'">Call Now</button>
-                <button class="contact-button" onclick="window.open('https://wa.me/919861501260', '_blank')">WhatsApp</button>
-            </div>
-        </div>
-    </section>
+<section id="work" class="reveal">
+<h2 class="title">Our Work</h2>
+<div class="gallery">
+<div class="work">PC Repair</div>
+<div class="work">Gaming Build</div>
+<div class="work">Office Setup</div>
+<div class="work">CCTV Install</div>
+<div class="work">Networking</div>
+<div class="work">Maintenance</div>
+</div>
+</section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2023 PC Care. All rights reserved.</p>
-        </div>
-    </footer>
+<section id="contact" class="reveal">
+<h2 class="title">Contact</h2>
+<div class="contact-box">
+<p><strong>Address:</strong> Musabadi Street, Main Rd, Nala Road, Udit Nagar, Rourkela</p>
+<p><strong>Phone:</strong> 9861501260</p>
+<div class="contact-btns">
+<button class="btn" onclick="location.href='tel:9861501260'">Call Now</button>
+<button class="btn" onclick="window.open('https://wa.me/919861501260')">WhatsApp</button>
+</div>
+</div>
+</section>
 
-    <!-- Floating Buttons -->
-    <div class="floating-button whatsapp" onclick="window.open('https://wa.me/919861501260', '_blank')">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
-        </svg>
-    </div>
-    <div class="floating-button call" onclick="window.location.href='tel:9861501260'">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M6.62 10.79c1.
+<footer>
+<p>© <span id="year"></span> PC Care. All Rights Reserved.</p>
+</footer>
+
+<div class="float whatsapp" onclick="window.open('https://wa.me/919861501260')">💬</div>
+<div class="float call" onclick="location.href='tel:9861501260'">📞</div>
+
+<script>
+const nav=document.getElementById("nav");
+window.addEventListener("scroll",()=>{
+nav.classList.toggle("scrolled",window.scrollY>50);
+document.querySelectorAll(".reveal").forEach(el=>{
+const top=el.getBoundingClientRect().top;
+if(top<window.innerHeight-100)el.classList.add("active");
+});
+});
+document.getElementById("year").innerText=new Date().getFullYear();
+</script>
+
+</body>
+</html>
