@@ -8,6 +8,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+  .gallery-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:15px;
+}
+
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
@@ -256,31 +263,29 @@ to{opacity:1;transform:none}
 </section>
 
 <section id="gallery">
-  <h2 class="title">Our Gallery</h2>
-  <div class="gallery">
+  <h2 class="section-title">Our Gallery</h2>
+
+  <div class="gallery-grid">
 
     <div class="gallery-item">
-      <img src="pc-care-1.jpeg">
-      <span>Our Shop</span>
+      <img src="./pc-care-1.jpeg" alt="Our Shop">
     </div>
 
     <div class="gallery-item">
-      <img src="pc-care-2.png">
-      <span>Our goods</span>
+      <img src="./pc-care-2.png" alt="Our goods">
     </div>
 
     <div class="gallery-item">
-      <img src="pc-care-3.png">
-      <span>work place</span>
+      <img src="./pc-care-3.png" alt="Work place">
     </div>
 
     <div class="gallery-item">
-      <img src="pc-care-4.png">
-      <span>Our infocrd</span>
+      <img src="./pc-care-4.png" alt="Our infocard">
     </div>
 
   </div>
 </section>
+
 
 <section id="services">
 <h2 class="title">Our Services</h2>
