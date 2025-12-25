@@ -8,84 +8,84 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{background:linear-gradient(135deg,#020617,#1e293b);color:#fff;}
-section{padding:100px 20px;}
-.container{max-width:1200px;margin:auto;}
-h2{
-text-align:center;font-size:2.8rem;margin-bottom:50px;
-background:linear-gradient(45deg,#00d4ff,#a855f7,#22c55e);
--webkit-background-clip:text;-webkit-text-fill-color:transparent;
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:#0f172a;color:#fff;line-height:1.7}
+a{text-decoration:none;color:#00d4ff}
+
+section{padding:100px 20px}
+.container{max-width:1200px;margin:auto}
+
+.section-title{
+text-align:center;font-size:2.8rem;margin-bottom:60px;
+background:linear-gradient(45deg,#00d4ff,#a855f7);
+-webkit-background-clip:text;-webkit-text-fill-color:transparent
 }
 
+/* HERO */
 .hero{
 min-height:100vh;display:flex;align-items:center;justify-content:center;
 text-align:center;
-background:radial-gradient(circle,#1e293b,#020617);
+background:linear-gradient(135deg,#020617,#1e293b)
 }
-.hero h1{font-size:4rem;}
-.hero p{opacity:.8;margin:20px 0;}
+.hero h1{font-size:4rem}
+.hero p{opacity:.8;margin:20px 0}
 .btn{
-padding:15px 40px;border-radius:50px;border:none;
+display:inline-block;padding:15px 40px;border-radius:50px;
 background:linear-gradient(45deg,#00d4ff,#a855f7);
-color:#fff;font-weight:600;cursor:pointer;
+color:#fff;font-weight:600
 }
 
-/* GRID */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px;}
+/* GRID / CARD */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px}
 .card{
-background:rgba(255,255,255,.1);
+background:rgba(255,255,255,.08);
 padding:35px;border-radius:20px;
-transition:.3s;cursor:pointer;
+transition:.3s;cursor:pointer
 }
-.card:hover{transform:translateY(-10px);background:rgba(255,255,255,.2);}
+.card:hover{transform:translateY(-10px);background:rgba(255,255,255,.15)}
 
 /* STATS */
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;text-align:center;}
-.stats h3{font-size:3rem;color:#22c55e;}
+.stats{text-align:center}
+.stats h3{font-size:3rem;color:#00d4ff}
 
 /* GALLERY */
 .gallery img{
-width:100%;height:220px;object-fit:cover;
-border-radius:15px;cursor:pointer;
-transition:.3s;
+width:100%;height:220px;object-fit:cover;border-radius:15px;
+cursor:pointer;transition:.3s
 }
-.gallery img:hover{transform:scale(1.05);}
+.gallery img:hover{transform:scale(1.05)}
 
 /* LIGHTBOX */
-#lightbox{
+.lightbox{
 position:fixed;top:0;left:0;width:100%;height:100%;
 background:rgba(0,0,0,.9);
-display:none;align-items:center;justify-content:center;
-z-index:999;
+display:none;align-items:center;justify-content:center;z-index:999
 }
-#lightbox img{max-width:90%;max-height:90%;border-radius:20px;}
+.lightbox img{max-width:90%;max-height:90%;border-radius:20px}
 
 /* MODAL */
 .modal{
 position:fixed;top:0;left:0;width:100%;height:100%;
 background:rgba(0,0,0,.8);
-display:none;align-items:center;justify-content:center;
-z-index:999;
+display:none;align-items:center;justify-content:center;z-index:999
 }
-.modal-box{
+.modal-content{
 background:#020617;padding:40px;border-radius:20px;
-width:90%;max-width:400px;
+max-width:420px;width:90%
 }
 input,textarea{
-width:100%;padding:12px;margin:10px 0;
-border-radius:10px;border:none;
+width:100%;padding:12px;margin:10px 0;border-radius:10px;border:none
 }
 
 /* FOOTER */
-footer{text-align:center;padding:40px;background:#020617;}
+footer{text-align:center;padding:40px;background:#020617}
 
-/* FLOAT */
+/* FLOAT WA */
 .float{
 position:fixed;bottom:20px;right:20px;
 background:#25d366;color:#fff;
-padding:15px 18px;border-radius:50%;
-font-weight:700;text-decoration:none;
+padding:16px;border-radius:50%;
+font-weight:700
 }
 </style>
 </head>
@@ -97,98 +97,109 @@ font-weight:700;text-decoration:none;
 <div>
 <h1>PC Care</h1>
 <p>Premium Computer Services in Rourkela</p>
-<button class="btn">Trusted • Fast • Professional</button>
+<a href="#services" class="btn">Explore Services</a>
 </div>
 </section>
 
 <!-- ABOUT -->
 <section class="container">
-<h2>About Us</h2>
-<p style="text-align:center;max-width:800px;margin:auto;">
-PC Care is a trusted local computer service shop with 5+ years of experience
-in PC & Laptop repair, custom builds, networking and AMC services.
+<h2 class="section-title">About PC Care</h2>
+<p style="text-align:center;max-width:800px;margin:auto">
+PC Care is a trusted local computer service shop in Rourkela with
+<strong>5+ years of experience</strong> in PC & laptop repair,
+custom builds, networking and AMC services.
 </p>
 </section>
 
 <!-- STATS -->
-<section class="stats container">
+<section class="container stats grid">
 <div><h3>5+</h3><p>Years Experience</p></div>
 <div><h3>1000+</h3><p>Happy Customers</p></div>
 <div><h3>24x7</h3><p>Support</p></div>
-<div><h3>100%</h3><p>Trusted</p></div>
+<div><h3>100%</h3><p>Trusted Service</p></div>
 </section>
 
 <!-- SERVICES -->
-<section class="container">
-<h2>Our Services</h2>
+<section id="services" class="container">
+<h2 class="section-title">Our Services</h2>
 <div class="grid">
 <div class="card" onclick="openForm('PC / Laptop Repair')">PC / Laptop Repair</div>
 <div class="card" onclick="openForm('Custom PC Build')">Custom PC Build</div>
 <div class="card" onclick="openForm('Windows & Software Installation')">Windows & Software Installation</div>
 <div class="card" onclick="openForm('Accessories Sale')">Accessories Sale</div>
 <div class="card" onclick="openForm('Networking / CCTV')">Networking / CCTV</div>
-<div class="card" onclick="openForm('Annual Maintenance AMC')">Annual Maintenance (AMC)</div>
+<div class="card" onclick="openForm('Annual Maintenance Contract')">Annual Maintenance (AMC)</div>
 </div>
 </section>
 
 <!-- SERVICE DETAILS -->
 <section class="container">
-<h2>Service Details</h2>
+<h2 class="section-title">Service Details</h2>
 <div class="grid">
-<div class="card">Slow PC • Virus • Heating • Screen • Keyboard</div>
-<div class="card">Gaming • Office • Editing • Budget Builds</div>
-<div class="card">Wi-Fi Setup • Router • CCTV Installation</div>
+<div class="card">
+<h3>PC / Laptop Repair</h3>
+<p>Slow PC, virus removal, motherboard repair, screen & keyboard replacement.</p>
+</div>
+<div class="card">
+<h3>Custom PC Build</h3>
+<p>Gaming PC, Office PC, Editing workstation – budget to premium builds.</p>
+</div>
+<div class="card">
+<h3>Networking & CCTV</h3>
+<p>Wi-Fi setup, router config, CCTV installation & office networking.</p>
+</div>
 </div>
 </section>
 
 <!-- GALLERY -->
 <section class="container">
-<h2>Our Gallery</h2>
+<h2 class="section-title">Our Gallery</h2>
 <div class="grid gallery">
-<img src="./pc-care-1.jpeg" onclick="showImg(this.src)">
-<img src="./pc-care-2.png" onclick="showImg(this.src)">
-<img src="./pc-care-3.png" onclick="showImg(this.src)">
-<img src="./pc-care-4.png" onclick="showImg(this.src)">
+<img src="./pc-care-1.jpeg" onclick="openImg(this)">
+<img src="./pc-care-2.png" onclick="openImg(this)">
+<img src="./pc-care-3.png" onclick="openImg(this)">
+<img src="./pc-care-4.png" onclick="openImg(this)">
 </div>
 </section>
 
 <!-- AREAS -->
 <section class="container">
-<h2>Areas We Serve</h2>
+<h2 class="section-title">Areas We Serve</h2>
 <div class="grid">
 <div class="card">Udit Nagar</div>
 <div class="card">Main Road</div>
 <div class="card">Civil Township</div>
 <div class="card">Plant Site</div>
+<div class="card">Nearby Areas</div>
 </div>
 </section>
 
 <!-- FAQ -->
 <section class="container">
-<h2>FAQ</h2>
+<h2 class="section-title">FAQ</h2>
 <div class="grid">
-<div class="card">⏱ Repair Time: 24–48 Hours</div>
-<div class="card">🛡 Warranty on selected services</div>
-<div class="card">🏠 Home service available</div>
+<div class="card"><strong>Repair time?</strong><p>Mostly 24–48 hours.</p></div>
+<div class="card"><strong>Warranty?</strong><p>Yes, depends on service.</p></div>
+<div class="card"><strong>Home service?</strong><p>Available in selected areas.</p></div>
 </div>
 </section>
 
 <!-- HOURS -->
 <section class="container">
-<h2>Business Hours</h2>
+<h2 class="section-title">Business Hours</h2>
 <div class="grid">
-<div class="card">Mon–Sat: 10AM – 8PM</div>
-<div class="card">Sunday: Emergency Support</div>
+<div class="card">Mon – Sat<br>10:00 AM – 8:00 PM</div>
+<div class="card">Sunday<br>Emergency Support</div>
 </div>
 </section>
 
 <!-- CONTACT -->
 <section class="container">
-<h2>Contact Us</h2>
+<h2 class="section-title">Contact Us</h2>
 <p style="text-align:center">
 📍 Musabadi Street, Udit Nagar, Rourkela<br><br>
-📞 <a href="tel:9861501260" style="color:#00d4ff">9861501260</a><br>
-📧 <a href="mailto:pccare.rkl1@gmail.com" style="color:#00d4ff">pccare.rkl1@gmail.com</a>
+📞 <a href="tel:9861501260">9861501260</a><br>
+📧 <a href="mailto:pccare.rkl1@gmail.com">pccare.rkl1@gmail.com</a>
 </p>
 </section>
 
@@ -199,17 +210,17 @@ in PC & Laptop repair, custom builds, networking and AMC services.
 <a class="float" href="https://wa.me/919861501260" target="_blank">WA</a>
 
 <!-- LIGHTBOX -->
-<div id="lightbox" onclick="this.style.display='none'">
-<img id="lightImg">
+<div class="lightbox" id="lightbox" onclick="this.style.display='none'">
+<img id="lightboxImg">
 </div>
 
 <!-- SERVICE FORM -->
 <div class="modal" id="modal">
-<div class="modal-box">
-<h3 id="serviceTitle"></h3>
+<div class="modal-content">
+<h3 id="serviceName"></h3>
 <input id="custName" placeholder="Your Name">
-<textarea id="custProb" placeholder="Describe your problem"></textarea>
-<button class="btn" onclick="sendWA()">Send on WhatsApp</button>
+<textarea id="problem" placeholder="Describe your problem"></textarea>
+<a class="btn" onclick="sendWA()">Get Service</a>
 </div>
 </div>
 
@@ -217,20 +228,20 @@ in PC & Laptop repair, custom builds, networking and AMC services.
 let service="";
 function openForm(s){
 service=s;
-document.getElementById("serviceTitle").innerText=s;
+document.getElementById("serviceName").innerText=s;
 document.getElementById("modal").style.display="flex";
 }
 function sendWA(){
 let n=document.getElementById("custName").value;
-let p=document.getElementById("custProb").value;
+let p=document.getElementById("problem").value;
 let msg=`Service: ${service}%0AName: ${n}%0AProblem: ${p}`;
-window.open(`https://wa.me/919861501260?text=${msg}`,"_blank");
+window.open("https://wa.me/919861501260?text="+msg,"_blank");
 }
 window.onclick=e=>{
 if(e.target.id=="modal")modal.style.display="none";
 }
-function showImg(src){
-document.getElementById("lightImg").src=src;
+function openImg(img){
+document.getElementById("lightboxImg").src=img.src;
 document.getElementById("lightbox").style.display="flex";
 }
 </script>
