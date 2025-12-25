@@ -109,6 +109,37 @@ border-radius:20px;
 backdrop-filter:blur(15px);
 }
 
+/* GALLERY */
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+.gallery-item{
+border-radius:18px;
+overflow:hidden;
+position:relative;
+cursor:pointer;
+}
+.gallery-item img{
+width:100%;
+height:220px;
+object-fit:cover;
+transition:.4s;
+}
+.gallery-item:hover img{
+transform:scale(1.1);
+}
+.gallery-item span{
+position:absolute;
+bottom:0;
+width:100%;
+padding:10px;
+background:rgba(0,0,0,.6);
+text-align:center;
+font-weight:500;
+}
+
 /* SERVICES */
 .services{
 display:grid;
@@ -128,25 +159,6 @@ transform:translateY(-12px);
 box-shadow:0 30px 60px rgba(0,0,0,.5);
 }
 .card h3{color:#00d4ff;margin-bottom:15px}
-
-/* GALLERY */
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-}
-.work{
-height:200px;
-border-radius:18px;
-background:linear-gradient(135deg,#667eea,#764ba2);
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:1.2rem;
-font-weight:600;
-transition:.4s;
-}
-.work:hover{transform:scale(1.07)}
 
 /* CONTACT */
 .contact-box{
@@ -225,8 +237,8 @@ to{opacity:1;transform:none}
 <div class="logo">PC Care</div>
 <div class="nav-links">
 <a href="#about">About</a>
+<a href="#gallery">Gallery</a>
 <a href="#services">Services</a>
-<a href="#work">Work</a>
 <a href="#contact">Contact</a>
 </div>
 </div>
@@ -247,6 +259,29 @@ to{opacity:1;transform:none}
 </div>
 </section>
 
+<!-- GALLERY SECTION -->
+<section id="gallery">
+<h2 class="title">Our Gallery</h2>
+<div class="gallery">
+<div class="gallery-item">
+<img src="https://via.placeholder.com/400x300?text=PC+Care+Shop">
+<span>Our Shop</span>
+</div>
+<div class="gallery-item">
+<img src="https://via.placeholder.com/400x300?text=PC+Repair+Work">
+<span>PC Repair Work</span>
+</div>
+<div class="gallery-item">
+<img src="https://via.placeholder.com/400x300?text=Laptop+Service">
+<span>Laptop Servicing</span>
+</div>
+<div class="gallery-item">
+<img src="https://via.placeholder.com/400x300?text=Custom+PC+Build">
+<span>Custom PC Build</span>
+</div>
+</div>
+</section>
+
 <section id="services">
 <h2 class="title">Our Services</h2>
 <div class="services">
@@ -256,18 +291,6 @@ to{opacity:1;transform:none}
 <div class="card" onclick="openPopup('Accessories Sale')"><h3>Accessories Sale</h3></div>
 <div class="card" onclick="openPopup('Networking / CCTV')"><h3>Networking / CCTV</h3></div>
 <div class="card" onclick="openPopup('AMC Support')"><h3>AMC Support</h3></div>
-</div>
-</section>
-
-<section id="work">
-<h2 class="title">Our Work</h2>
-<div class="gallery">
-<div class="work">PC Repair</div>
-<div class="work">Gaming Build</div>
-<div class="work">Office Setup</div>
-<div class="work">CCTV Install</div>
-<div class="work">Networking</div>
-<div class="work">Maintenance</div>
 </div>
 </section>
 
@@ -286,7 +309,7 @@ to{opacity:1;transform:none}
 <div class="float whatsapp" onclick="window.open('https://wa.me/919861501260')">💬</div>
 <div class="float call" onclick="location.href='tel:9861501260'">📞</div>
 
-<!-- POPUP -->
+<!-- SERVICE POPUP -->
 <div id="popup">
 <div class="popup-box">
 <h2 style="color:#00d4ff;margin-bottom:15px">Get Service</h2>
