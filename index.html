@@ -2,360 +2,175 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PC Care | Premium Computer Services</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-  .gallery-item img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  border-radius:15px;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:#0f172a;color:#fff;line-height:1.6;}
 
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-font-family:'Montserrat',sans-serif;
-background:#0b0f1a;
-color:#fff;
-overflow-x:hidden;
-}
+section{padding:100px 20px;}
+.container{max-width:1200px;margin:auto;}
+h2{text-align:center;font-size:2.8rem;margin-bottom:50px;
+background:linear-gradient(45deg,#00d4ff,#a855f7);
+-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 
-/* NAVBAR */
-nav{
-position:fixed;
-top:0;
-width:100%;
-z-index:999;
-transition:.4s;
-}
-nav.scrolled{
-background:rgba(10,15,30,.95);
-backdrop-filter:blur(10px);
-box-shadow:0 10px 30px rgba(0,0,0,.4);
-}
-.nav-container{
-max-width:1200px;
-margin:auto;
-padding:20px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-.logo{
-font-size:24px;
-font-weight:700;
-color:#00d4ff;
-}
-.nav-links a{
-margin-left:25px;
-text-decoration:none;
-color:#fff;
-font-weight:500;
-}
-.nav-links a:hover{color:#00d4ff}
-
-/* HERO */
 .hero{
-min-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
+min-height:100vh;display:flex;align-items:center;justify-content:center;
+background:linear-gradient(135deg,#1e293b,#020617);
 text-align:center;
-background:linear-gradient(135deg,#1f3c88,#512da8);
 }
-.hero h1{
-font-size:4rem;
-background:linear-gradient(45deg,#00d4ff,#a855f7);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-animation:fadeUp 1.2s ease;
-}
-.hero p{
-margin:20px 0 40px;
-font-size:1.2rem;
-opacity:.9;
-animation:fadeUp 1.6s ease;
-}
+.hero h1{font-size:4rem;}
+.hero p{opacity:.8;margin:20px 0;}
 .btn{
-padding:15px 35px;
-border:none;
-border-radius:50px;
+padding:15px 35px;border-radius:50px;border:none;
 background:linear-gradient(45deg,#00d4ff,#a855f7);
-color:#fff;
-font-size:1.1rem;
-cursor:pointer;
-transition:.3s;
-box-shadow:0 10px 30px rgba(0,212,255,.4);
-}
-.btn:hover{transform:translateY(-6px)}
-
-/* SECTION */
-section{
-padding:100px 20px;
-max-width:1200px;
-margin:auto;
-}
-.title{
-text-align:center;
-font-size:2.5rem;
-margin-bottom:60px;
-background:linear-gradient(45deg,#00d4ff,#a855f7);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
-
-/* ABOUT */
-.about-box{
-background:rgba(255,255,255,.06);
-padding:50px;
-border-radius:20px;
-backdrop-filter:blur(15px);
-}
-
-/* GALLERY */
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-}
-.gallery-item{
-border-radius:18px;
-overflow:hidden;
-position:relative;
-}
-.gallery-item img{
-width:100%;
-height:220px;
-object-fit:cover;
-transition:.4s;
-}
-.gallery-item:hover img{transform:scale(1.1)}
-.gallery-item span{
-position:absolute;
-bottom:0;
-width:100%;
-padding:10px;
-background:rgba(0,0,0,.6);
-text-align:center;
+color:#fff;font-weight:600;cursor:pointer;
 }
 
 /* SERVICES */
-.services{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
-}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px;}
 .card{
 background:rgba(255,255,255,.08);
-padding:30px;
-border-radius:20px;
-text-align:center;
-transition:.4s;
+padding:35px;border-radius:20px;
+cursor:pointer;transition:.3s;
 }
-.card:hover{
-transform:translateY(-12px);
-box-shadow:0 30px 60px rgba(0,0,0,.5);
-}
-.card h3{color:#00d4ff}
+.card:hover{transform:translateY(-10px);background:rgba(255,255,255,.15);}
 
-/* CONTACT */
-.contact-box{
-background:rgba(255,255,255,.06);
-padding:50px;
-border-radius:20px;
-text-align:center;
-}
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;text-align:center;}
+.stats h3{font-size:3rem;color:#00d4ff;}
 
-/* FLOAT */
-.float{
-position:fixed;
-bottom:20px;
-width:60px;
-height:60px;
-border-radius:50%;
-background:linear-gradient(45deg,#00d4ff,#a855f7);
-display:flex;
-align-items:center;
-justify-content:center;
-cursor:pointer;
-box-shadow:0 10px 25px rgba(0,212,255,.5);
-transition:.3s;
-}
-.float:hover{transform:scale(1.15)}
-.whatsapp{right:20px}
-.call{right:90px}
+/* GALLERY */
+.gallery img{width:100%;height:220px;object-fit:cover;border-radius:15px;}
 
-/* POPUP */
-#popup{
-display:none;
-position:fixed;
-top:0;left:0;
-width:100%;height:100%;
-background:rgba(0,0,0,.8);
-z-index:9999;
-align-items:center;
-justify-content:center;
+/* MODAL */
+.modal{
+position:fixed;top:0;left:0;width:100%;height:100%;
+background:rgba(0,0,0,.7);
+display:none;align-items:center;justify-content:center;
+z-index:999;
 }
-.popup-box{
-background:#0b0f1a;
-padding:30px;
-border-radius:20px;
-width:90%;
-max-width:420px;
-text-align:center;
+.modal-content{
+background:#020617;padding:40px;border-radius:20px;
+max-width:400px;width:90%;
 }
-.popup-box select,
-.popup-box textarea{
-width:100%;
-padding:12px;
-border:none;
-border-radius:10px;
-margin-bottom:15px;
-background:#1a1f2e;
-color:#fff;
+input,textarea{
+width:100%;padding:12px;margin:10px 0;border-radius:10px;border:none;
 }
 
 /* FOOTER */
-footer{
-padding:20px;
-text-align:center;
-background:#0a0f1e;
-}
+footer{text-align:center;padding:30px;background:#020617;}
 
-@keyframes fadeUp{
-from{opacity:0;transform:translateY(40px)}
-to{opacity:1;transform:none}
+/* FLOAT */
+.float{
+position:fixed;bottom:20px;right:20px;
+background:#25d366;color:#fff;
+padding:15px;border-radius:50%;
+text-decoration:none;font-weight:700;
 }
 </style>
 </head>
 
 <body>
 
-<nav id="nav">
-<div class="nav-container">
-<div class="logo">PC Care</div>
-<div class="nav-links">
-<a href="#about">About</a>
-<a href="#gallery">Gallery</a>
-<a href="#services">Services</a>
-<a href="#contact">Contact</a>
-</div>
-</div>
-</nav>
-
+<!-- HERO -->
 <section class="hero">
 <div>
 <h1>PC Care</h1>
 <p>Premium Computer Services in Rourkela</p>
-<button class="btn" onclick="openPopup()">Get Service</button>
+<button class="btn">Trusted • Fast • Professional</button>
 </div>
 </section>
 
-<section id="about">
-<h2 class="title">About Us</h2>
-<div class="about-box">
-<p>PC Care is a trusted computer service center with 5+ years of experience in PC & Laptop repair, custom builds, networking and CCTV installation.</p>
+<!-- ABOUT -->
+<section class="container">
+<h2>About Us</h2>
+<p style="text-align:center;max-width:800px;margin:auto;">
+5+ years experience in computer & laptop repair, custom PC build,
+networking, CCTV and AMC services.
+</p>
+</section>
+
+<!-- STATS -->
+<section class="stats container">
+<div><h3>5+</h3><p>Years Experience</p></div>
+<div><h3>1000+</h3><p>Happy Customers</p></div>
+<div><h3>24x7</h3><p>Support</p></div>
+<div><h3>100%</h3><p>Trusted</p></div>
+</section>
+
+<!-- SERVICES -->
+<section class="container">
+<h2>Our Services</h2>
+<div class="grid">
+<div class="card" onclick="openForm('PC / Laptop Repair')">PC / Laptop Repair</div>
+<div class="card" onclick="openForm('Custom PC Build')">Custom PC Build</div>
+<div class="card" onclick="openForm('Windows & Software Install')">Windows & Software Install</div>
+<div class="card" onclick="openForm('Accessories Sale')">Accessories Sale</div>
+<div class="card" onclick="openForm('Networking / CCTV')">Networking / CCTV</div>
+<div class="card" onclick="openForm('Annual Maintenance AMC')">Annual Maintenance (AMC)</div>
 </div>
 </section>
 
-<section id="gallery">
-  <h2 class="section-title">Our Gallery</h2>
-
-  <div class="gallery-grid">
-
-    <div class="gallery-item">
-      <img src="./pc-care-1.jpeg" alt="Our Shop">
-    </div>
-
-    <div class="gallery-item">
-      <img src="./pc-care-2.png" alt="Our goods">
-    </div>
-
-    <div class="gallery-item">
-      <img src="./pc-care-3.png" alt="Work place">
-    </div>
-
-    <div class="gallery-item">
-      <img src="./pc-care-4.png" alt="Our infocard">
-    </div>
-
-  </div>
-</section>
-
-
-<section id="services">
-<h2 class="title">Our Services</h2>
-<div class="services">
-<div class="card"><h3>PC / Laptop Repair</h3></div>
-<div class="card"><h3>Custom PC Build</h3></div>
-<div class="card"><h3>Windows Installation</h3></div>
-<div class="card"><h3>Accessories Sale</h3></div>
-<div class="card"><h3>Networking / CCTV</h3></div>
-<div class="card"><h3>AMC Support</h3></div>
+<!-- GALLERY -->
+<section class="container">
+<h2>Our Gallery</h2>
+<div class="grid gallery">
+<img src="./pc-care-1.jpeg">
+<img src="./pc-care-2.png">
+<img src="./pc-care-3.png">
+<img src="./pc-care-4.png">
 </div>
 </section>
 
-<section id="contact">
-<h2 class="title">Contact</h2>
-<div class="contact-box">
-<p><b>Address:</b> Musabadi Street, Main Rd, Udit Nagar, Rourkela</p>
-<p><b>Phone:</b> 9861501260</p>
-</div>
+<!-- CONTACT -->
+<section class="container">
+<h2>Contact Us</h2>
+<p style="text-align:center">
+📍 Musabadi Street, Udit Nagar, Rourkela<br>
+📞 <a href="tel:9861501260" style="color:#00d4ff">9861501260</a><br>
+📧 <a href="mailto:pccare.rkl1@gmail.com" style="color:#00d4ff">pccare.rkl1@gmail.com</a>
+</p>
 </section>
 
 <footer>
-<p>© 2025 PC Care. All Rights Reserved.</p>
+<p>© 2025 PC Care | All Rights Reserved</p>
 </footer>
 
-<div class="float whatsapp" onclick="window.open('https://wa.me/919861501260')">💬</div>
-<div class="float call" onclick="location.href='tel:9861501260'">📞</div>
+<a class="float" href="https://wa.me/919861501260" target="_blank">WA</a>
 
-<!-- SERVICE POPUP -->
-<div id="popup">
-<div class="popup-box">
-<h2 style="color:#00d4ff;margin-bottom:15px">Get Service</h2>
-
-<select id="service">
-<option value="">Select Service</option>
-<option>PC / Laptop Repair</option>
-<option>Custom PC Build</option>
-<option>Windows Installation</option>
-<option>Accessories Sale</option>
-<option>Networking / CCTV</option>
-<option>AMC Support</option>
-</select>
-
-<textarea id="problem" placeholder="Describe your problem..."></textarea>
-
-<button class="btn" onclick="sendWA()">Send on WhatsApp</button>
-<button class="btn" style="background:#444;margin-top:10px" onclick="closePopup()">Cancel</button>
+<!-- SERVICE FORM MODAL -->
+<div class="modal" id="modal">
+<div class="modal-content">
+<h3 id="serviceName"></h3>
+<input id="name" placeholder="Your Name">
+<textarea id="problem" placeholder="Describe your problem"></textarea>
+<button class="btn" onclick="sendWhatsApp()">Get Service</button>
 </div>
 </div>
 
 <script>
-function openPopup(){
-document.getElementById("popup").style.display="flex";
+let selectedService="";
+
+function openForm(service){
+selectedService=service;
+document.getElementById("serviceName").innerText=service;
+document.getElementById("modal").style.display="flex";
 }
-function closePopup(){
-document.getElementById("popup").style.display="none";
-}
-function sendWA(){
-let service=document.getElementById("service").value;
-let problem=document.getElementById("problem").value.trim();
-if(service===""||problem===""){
-alert("Please select service and write problem");
-return;
-}
-let msg=`Hello PC Care 👋%0AService: ${service}%0AProblem: ${problem}`;
+
+function sendWhatsApp(){
+let name=document.getElementById("name").value;
+let problem=document.getElementById("problem").value;
+
+let msg=`Service: ${selectedService}%0AName: ${name}%0AProblem: ${problem}`;
 window.open(`https://wa.me/919861501260?text=${msg}`,"_blank");
 }
-window.addEventListener("scroll",()=>{
-document.getElementById("nav").classList.toggle("scrolled",window.scrollY>50);
-});
+window.onclick=e=>{
+if(e.target.id=="modal")document.getElementById("modal").style.display="none";
+}
 </script>
 
 </body>
